@@ -22,6 +22,5 @@
     "eslint-plugin-standard": "^2.0.1",
     "eslint-plugin-vue": "^4.7.1",
     "standard": "^10.0.2"
-  },
-  "gitHead": "2bfc667be76b0044fa78c7e2414e2f24276788cf"
+  }
 }

@@ -7,6 +7,6 @@ function resolvePath(...args) {
 export default function() {
   this.addPlugin({
     src: resolvePath('plugin.js'),
-    fileName: 'nuex/plugin.js'
+    fileName: 'unholy/plugin.js'
   })
 }

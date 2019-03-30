@@ -33,7 +33,7 @@ export function merge(target, source) {
 }
 
 export default ({ store }) => {
-  store.registerModule('nuex', {
+  store.registerModule('unholy', {
     mutations: {
       merge(state, updatedState) {
         if (updatedState !== null && typeof updatedState === 'object') {
