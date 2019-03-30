@@ -1,6 +1,6 @@
 {
   "name": "unholy",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "license": "MIT",
   "description": "A tiny and unholy Vuex extension for Nuxt.js",
   "author": "Jonas Galvez",
@@ -11,7 +11,6 @@
     "access": "public"
   },
   "main": "src/index.js",
-  "module": "src/index.mjs",
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^3.19.0",
