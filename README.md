@@ -37,5 +37,5 @@ export default {
 
 # Credits
 
-- Jonas Galvez ([@galvez](https://github.com/galvez)
+- Jonas Galvez ([@galvez](https://github.com/galvez))
 - Pooya Parsa ([@pi0](https://github.com/pi0))
