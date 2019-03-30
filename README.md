@@ -21,9 +21,8 @@ default `store.js` template.
 In other words, at the time of writing, this module is only **guaranteed** to 
 work with **Nuxt 2.5.1** and **Vuex 3.1.0**.
 
- See what [nuxt/hackernews][hn] [looks like with unholy][unholy-hn].
+ [See what **nuxt/hackernews** looks like with unholy][unholy-hn].
 
- [hn]: https://github.com/nuxt/hackernews
  [unholy-hn]: https://github.com/galvez/hackernews/commit/38885631742c9321172114693da30e703c85a120
 
 # Installation
