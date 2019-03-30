@@ -5,7 +5,7 @@ your application.
 ```js
 this.$store.commit({
   propInState: {
-  	toBeUpdated: 2
+    toBeUpdated: 2
   }
 })
 ```
