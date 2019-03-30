@@ -10,9 +10,10 @@ function isObject(val) {
 }
 
 module.exports = function() {
-  this.addPlugin({
-    src: resolvePath('plugin.js'),
-    fileName: 'unholy/plugin.js'
+  this.addTemplate({
+    src: resolvePath('store.js'),
+    fileName: 'store.js',
+    options: this.options
   })
 }
 

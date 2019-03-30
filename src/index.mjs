@@ -1,4 +1,5 @@
-import { resolve } from 'path'
+const Vue = require('vue')
+const { resolve } = require('path')
 
 function isObject(val) {
   return val !== null && typeof val === 'object' && !Array.isArray(val)
@@ -26,8 +27,9 @@ function resolvePath(...args) {
 }
 
 export default function() {
-  this.addPlugin({
-    src: resolvePath('plugin.js'),
-    fileName: 'unholy/plugin.js'
+  this.addTemplate({
+    src: resolvePath('store.js'),
+    fileName: 'store.js',
+    options: this.options
   })
 }
