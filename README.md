@@ -11,7 +11,9 @@ this.$store.commit({
 ```
 
 Calls to `commit()` with a single object parameter will trigger this 
-functionality. Calls with more arguments will trigger the original functionality.
+functionality. 
+
+Calls with more arguments will trigger the original functionality.
 
 It is **unsafe** because it extends `Vuex.Store`'s prototype and Nuxt.js's 
 default `store.js` template.
