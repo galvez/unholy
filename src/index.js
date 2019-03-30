@@ -1,4 +1,3 @@
-const Vue = require('vue')
 const { resolve } = require('path')
 
 function resolvePath(...args) {
@@ -15,23 +14,6 @@ function unholy() {
     fileName: 'store.js',
     options: this.options
   })
-}
-
-unholy.merge = function (target, source) {
-  if (!isObject(target) || !isObject(source)) {
-    return
-  }
-  for (const key in source) {
-    if (key === '__proto__' || key === 'constructor') {
-      continue
-    }
-    const val = source[key]
-    if (isObject(val) && isObject(target[key])) {
-      unholy.merge(target[key], source[key])
-    } else {
-      Vue.set(target, key, val)
-    }
-  }
 }
 
 module.exports = unholy

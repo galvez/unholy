@@ -1,6 +1,6 @@
 {
   "name": "unholy",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "description": "A tiny and unholy Vuex extension for Nuxt.js",
   "author": "Jonas Galvez",
@@ -22,7 +22,5 @@
     "eslint-plugin-vue": "^4.7.1",
     "standard": "^10.0.2"
   },
-  "dependencies": {
-    "vue": "^2.6.10"
-  }
+  "dependencies": {}
 }
