@@ -14,9 +14,10 @@ Calls to `commit()` with a single object parameter will trigger this
 functionality. Calls with more arguments will trigger the original functionality.
 
 It is **unsafe** because it extends `Vuex.Store`'s prototype and Nuxt.js's 
-default `store.js` template. In other words, at the time of writing, this module
-is only **guaranteed** to work with **Nuxt 2.5.1** and **Vuex 3.1.0**, because
-it touches on internal APIs.
+default `store.js` template.
+
+In other words, at the time of writing, this module is only **guaranteed** to 
+work with **Nuxt 2.5.1** and **Vuex 3.1.0**, because it touches on internal APIs.
 
 # Installation
 
@@ -36,5 +37,5 @@ export default {
 
 # Credits
 
-- Jonas Galvez ([@galvez][https://github.com/galvez])
-- Pooya Parsa ([@pi0][https://github.com/pi0])
+- Jonas Galvez ([@galvez](https://github.com/galvez)
+- Pooya Parsa ([@pi0](https://github.com/pi0))
