@@ -19,7 +19,7 @@ It is **unsafe** because it extends `Vuex.Store`'s prototype and Nuxt.js's
 default `store.js` template.
 
 In other words, at the time of writing, this module is only **guaranteed** to 
-work with **Nuxt 2.5.1** and **Vuex 3.1.0**, because it touches on internal APIs.
+work with **Nuxt 2.5.1** and **Vuex 3.1.0**.
 
 # Installation
 
