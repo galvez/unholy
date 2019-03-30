@@ -4,7 +4,6 @@ import Vuex from 'vuex'
 const commit = Vuex.Store.prototype.commit
 
 Vuex.Store.prototype.commit = function(...args) {
-  console.log(args)
   if (isObject(args[0])) {
     commit.call(this, 'merge', args[0], { root: true })
   } else {
