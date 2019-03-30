@@ -27,7 +27,7 @@ unholy.merge = function (target, source) {
     }
     const val = source[key]
     if (isObject(val) && isObject(target[key])) {
-      merge(target[key], source[key])
+      unholy.merge(target[key], source[key])
     } else {
       Vue.set(target, key, val)
     }
