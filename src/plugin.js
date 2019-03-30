@@ -36,7 +36,7 @@ export default ({ store }) => {
   store.registerModule('unholy', {
     mutations: {
       merge(state, updatedState) {
-        if (updatedState !== null && typeof updatedState === 'object') {
+        if (isObject(updatedState)) {
           merge(state, updatedState)
         }
       }
