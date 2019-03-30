@@ -9,7 +9,7 @@ function isObject(val) {
   return val !== null && typeof val === 'object' && !Array.isArray(val)
 }
 
-module.exports = function() {
+function unholy() {
   this.addTemplate({
     src: resolvePath('store.js'),
     fileName: 'store.js',
@@ -17,7 +17,7 @@ module.exports = function() {
   })
 }
 
-exports.merge = function (target, source) {
+unholy.merge = function (target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -33,3 +33,5 @@ exports.merge = function (target, source) {
     }
   }
 }
+
+module.exports = unholy
