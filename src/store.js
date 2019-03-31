@@ -1,16 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-const commit = Vuex.Store.prototype.commit
-
-Vuex.Store.prototype.commit = function(...args) {
-  if (isObject(args[0])) {
-    commit.call(this, 'merge', args[0], { root: true })
-  } else {
-    commit.call(this, ...args)
-  }
-}
-
 Vue.use(Vuex)
 
 const log = console // on server-side, consola will catch all console.log
@@ -51,13 +41,26 @@ void (function updateModules() {
   }<% } %>
 })()
 
+const operations = {
+  merge: function(state, payload) {
+    mergeProps(state, payload)
+  },
+  push: function(state, payload) {
+    pushArray(state, payload)
+  },
+  anull: function(state, payload) {
+    anullProps(state, payload)
+  },
+  splice: function(state, payload) {
+    spliceArrays(state, payload)
+  },
+  empty: function(state, payload) {
+    emptyArrays(state, payload)
+  }
+}
+
 // createStore
 export const createStore = store instanceof Function ? store : () => {
-  store.mutations.merge = function(state, updatedState) {
-    if (isObject(updatedState)) {
-      mergeObject(state, updatedState)
-    }
-  }
   return new Vuex.Store(Object.assign({
     strict: (process.env.NODE_ENV !== 'production')
   }, store))
@@ -165,7 +168,7 @@ function isObject(val) {
   return val !== null && typeof val === 'object' && !Array.isArray(val)
 }
 
-function mergeObject(target, source) {
+function mergeProps(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -178,6 +181,80 @@ function mergeObject(target, source) {
       mergeObject(target[key], source[key])
     } else {
       Vue.set(target, key, val)
+    }
+  }
+}
+
+function anullProps(target, source) {
+  if (!isObject(target) || !isObject(source)) {
+    return
+  }
+  for (const key in source) {
+    if (key === '__proto__' || key === 'constructor') {
+      continue
+    }
+    const val = source[key]
+    if (isObject(val) && isObject(target[key])) {
+      mergeObject(target[key], source[key])
+    } else if (Array.isArray(val)) {
+      for (const vkey in val) {
+        Vue.set(target, vkey, null)
+      }
+    } else {
+      Vue.set(target, key, null)
+    }
+  }
+}
+
+function pushItems(target, source) {
+  if (!isObject(target) || !isObject(source)) {
+    return
+  }
+  for (const key in source) {
+    if (key === '__proto__' || key === 'constructor') {
+      continue
+    }
+    const val = source[key]
+    if (isObject(val) && isObject(target[key])) {
+      mergeObject(target[key], source[key])
+    } else if (Array.isArray(val) && Array.isArray(target[key])) {
+      target[key].push(val)
+    }
+  }
+}
+
+function spliceArrays(target, source) {
+  if (!isObject(target) || !isObject(source)) {
+    return
+  }
+  for (const key in source) {
+    if (key === '__proto__' || key === 'constructor') {
+      continue
+    }
+    const val = source[key]
+    if (isObject(val) && isObject(target[key])) {
+      spliceArrays(target[key], source[key])
+    } else if (Array.isArray(val) && Array.isArray(target[key])) {
+      target[key].splice(...val)
+    }
+  }
+}
+
+function emptyArrays(target, source) {
+  if (!isObject(target) || !isObject(source)) {
+    return
+  }
+  for (const key in source) {
+    if (key === '__proto__' || key === 'constructor') {
+      continue
+    }
+    const val = source[key]
+    if (isObject(val) && isObject(target[key])) {
+      mergeObject(target[key], source[key])
+    } else if (Array.isArray(val)) {
+      for (const vkey in val) {
+        target[vkey].splice(0, target[vkey].length)
+      }
     }
   }
 }

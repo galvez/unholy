@@ -1,29 +1,61 @@
-**unholy** is a Vuex extension for Nuxt.js that modifies `commit()` to allow
-simple, recursive state merging, as long as you use a single global state in 
-your application.
+**unholy** is a Vuex extension for Nuxt.js that injects a `$state` helper for performing state operations on the Vuex store. Currently the following operations are supported:
+
+## **merge**
 
 ```js
-this.$store.commit({
+this.$state.merge({
   propInState: {
     toBeUpdated: 2
   }
 })
+````
+
+## **anull**
+
+```js
+// Set top-level props to null
+this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'])
+
+// Set obj props to null
+this.$state.anull({
+  obj: ['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull']
+})
+````
+
+## **push**
+
+```js
+this.$state.merge({
+  arrayInState: {
+    toReceiveItems: [2, 3] // push(2, 3)
+  }
+})
 ```
 
-Calls to `commit()` with a single object parameter will trigger this 
-functionality. 
+## **splice**
 
-Calls with more arguments will trigger the original functionality.
+```js
+this.$state.splice({
+  arrayInState: {
+    toHaveSplicedItems: [0, 2] // splice args
+  }
+})
+```
 
-It is **unsafe** because it extends `Vuex.Store`'s prototype and Nuxt.js's 
-default `store.js` template.
+## **empty**
 
-In other words, at the time of writing, this module is only **guaranteed** to 
-work with **Nuxt 2.5.1** and **Vuex 3.1.0**.
+```js
+this.$state.empty('arrayInStateToHaveItemsEmptied')
 
- [See what **nuxt/hackernews** looks like with unholy][unholy-hn].
+this.$state.empty([
+  'arrayInStateToHaveItemsEmptied', 
+  'anotherArrayInStateToHaveItemsEmptied'
+ ])
 
- [unholy-hn]: https://github.com/galvez/hackernews/commit/38885631742c9321172114693da30e703c85a120
+this.$state.empty({
+  obj: ['arrayInObjToHaveItemsEmptied', 'arrayInObjToHaveItemsEmptied']
+})
+```
 
 # Installation
 
