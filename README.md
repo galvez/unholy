@@ -30,12 +30,10 @@ set properties in the state to null
 
 ```js
 // Set top-level props to null
-this.$state.anull('propToReceiveNull', 'otherPropToReceiveNull', ...)
+this.$state.anull('prop', 'otherProp', ...)
 
 // Set obj props to null
-this.$state.anull({
-  obj: ['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull']
-})
+this.$state.anull({ obj: ['prop', 'otherProp', ...] })
 ```
 </details>
 
