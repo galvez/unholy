@@ -5,8 +5,8 @@
 <details>
 <summary>
 <b><code>$state.merge</code></b>: merges object into state, overriding existing values
-</summary>
-<br>
+</summary><br>
+
 ```js
 this.$state.merge({
   propInState: {
@@ -19,9 +19,9 @@ this.$state.merge({
 <details>
 <summary>
 <b><code>$state.anull</code></b>: set properties in the state to null
-</summary>
-<br>
-```
+</summary><br>
+
+```js
 // Set top-level props to null
 this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'])
 
@@ -35,8 +35,8 @@ this.$state.anull({
 <details>
 <summary>
 <b><code>$state.push</code></b>: push values into state arrays
-</summary>
-<br>
+</summary><br>
+
 ```js
 this.$state.merge({
   arrayInState: {
@@ -50,8 +50,8 @@ this.$state.merge({
 <details>
 <summary>
 <b><code>$state.splice</code></b>: perform Array.splice() on state arrays
-</summary>
-<br>
+</summary><br>
+
 ```js
 this.$state.splice({
   arrayInState: {
@@ -64,8 +64,8 @@ this.$state.splice({
 <details>
 <summary>
 <b><code>$state.empty</code></b>: remove all items from arrays
-</summary>
-<br>
+</summary><br>
+
 ```js
 this.$state.empty('arrayInStateToHaveItemsEmptied')
 
@@ -78,7 +78,6 @@ this.$state.empty({
   obj: ['arrayInObjToHaveItemsEmptied', 'arrayInObjToHaveItemsEmptied']
 })
 ```
-
 </details>
 
 # Installation
