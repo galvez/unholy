@@ -1,5 +1,5 @@
-const { readFileSync } = require('fs')
-const { resolve, dirname, separator } = require('path')
+const { existsSync, readFileSync, writeFileSync } = require('fs')
+const { resolve, separator } = require('path')
 
 // Used for tampering with @nuxt/vue-app original store
 const vueAppPath = require.resolve('@nuxt/vue-app')
@@ -33,7 +33,7 @@ function prepareStoreTemplate() {
 module.exports = function () {
   const src = rp('templates/store.js')
   if (!existsSync(src)) {
-    prepareStoreTemplate()  
+    prepareStoreTemplate()
   }
   const fileName = 'store.js'
   const options = this.options
