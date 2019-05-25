@@ -1,6 +1,9 @@
-# **@nuxt/state** 
+# unholy
 
-## Injects `$state` helper for performing mutations on the Vuex store
+A [Nuxt.js][nuxt] module that injects a `$state` helper for performing core data 
+mutations on the Vuex store. Works with Nuxt.js **2.5 and above**.
+
+[nuxt]: https://github.com/nuxt/nuxt.js
 
 <details>
 <summary>
@@ -85,7 +88,7 @@ Usage with store submodules: **`$state.submodule.operation()`**.
 # Installation
 
 ```sh
-yarn add @nuxt/state
+yarn add unholy
 ```
 
 # Setup

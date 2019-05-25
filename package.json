@@ -1,6 +1,6 @@
 {
-  "name": "@nuxt/state",
-  "version": "0.1.0",
+  "name": "unholy",
+  "version": "1.0.0",
   "description": "State mutation helpers for Nuxt.js applications",
   "license": "MIT",
   "author": "Jonas Galvez",

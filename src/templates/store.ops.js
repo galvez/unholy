@@ -2,7 +2,7 @@ function isObject(val) {
   return val !== null && typeof val === 'object' && !Array.isArray(val)
 }
 
-function mergeProps(target, source) {
+export function mergeProps(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -19,7 +19,7 @@ function mergeProps(target, source) {
   }
 }
 
-function anullProps(target, source) {
+export function anullProps(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -40,7 +40,7 @@ function anullProps(target, source) {
   }
 }
 
-function pushItems(target, source) {
+export function pushItems(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -57,7 +57,7 @@ function pushItems(target, source) {
   }
 }
 
-function spliceArrays(target, source) {
+export function spliceArrays(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -74,7 +74,7 @@ function spliceArrays(target, source) {
   }
 }
 
-function emptyArrays(target, source) {
+export function emptyArrays(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
