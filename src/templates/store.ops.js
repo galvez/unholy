@@ -23,6 +23,7 @@ export function anullProps(target, ...source) {
   if (!isObject(target)) {
     return
   }
+  console.log(source[0], Array.isArray(source[0]))
   if (source.length === 1 && isObject(source[0])) {
     for (const key in source) {
       if (key === '__proto__' || key === 'constructor') {
@@ -30,6 +31,7 @@ export function anullProps(target, ...source) {
       }
       const val = source[key]
       if (isObject(val)) {
+        // console.log('key', key)
         anullProps(target[key], source[key])
       } else if (Array.isArray(val)) {
         for (const vkey of val) {
