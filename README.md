@@ -86,6 +86,8 @@ this.$state.empty({
 yarn add @nuxt/state
 ```
 
+To use with store submodules: **`$state.submodule.operation()`**.
+
 # Setup
 
 Add to the `modules` section of your `nuxt.config.js`:
