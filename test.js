@@ -43,6 +43,28 @@ function getState() {
 }
 
 describe('unholy tests', () => {
+  test('test mergeProps()', () => {
+    let state
+    let prop
+    let otherProp
+    let obj
+
+    state = getState()
+    mergeProps(state, { newProp: 1 })
+    expect(state.newProp).toMatchSnapshot()
+
+    state = getState()
+    mergeProps(state, {
+      newProp: 2,
+      newObject: {
+        newProp: 3,
+        newArray: [4]
+      }
+    })
+    expect(state.newProp).toMatchSnapshot()
+    expect(state.newObject).toMatchSnapshot()
+  })
+
   test('test anullProps()', () => {
     let state
     let prop

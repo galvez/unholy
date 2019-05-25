@@ -24,3 +24,16 @@ Object {
   },
 }
 `;
+
+exports[`unholy tests test mergeProps() 1`] = `1`;
+
+exports[`unholy tests test mergeProps() 2`] = `2`;
+
+exports[`unholy tests test mergeProps() 3`] = `
+Object {
+  "newArray": Array [
+    4,
+  ],
+  "newProp": 3,
+}
+`;
