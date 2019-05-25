@@ -1,7 +1,7 @@
 # unholy
 
-A [Nuxt.js][nuxt] module that injects a `$state` helper for performing **core data 
-mutations on the Vuex store**. 
+A [Nuxt.js][nuxt] module that injects a `$state` helper for performing **core 
+data mutations on the Vuex store**. 
 
 Works with Nuxt.js **2.5 and above**.
 
@@ -9,7 +9,8 @@ Works with Nuxt.js **2.5 and above**.
 
 <details>
 <summary>
-<b><code>$state.merge</code></b>: merges object into state, overriding existing values
+<b><code>$state[.submodule].merge</code></b>:
+merges object into state, overriding existing values
 </summary><br>
 
 ```js
@@ -23,7 +24,8 @@ this.$state.merge({
 
 <details>
 <summary>
-<b><code>$state.anull</code></b>: set properties in the state to null
+<b><code>$state[.submodule].anull</code></b>:
+set properties in the state to null
 </summary><br>
 
 ```js
@@ -39,7 +41,8 @@ this.$state.anull({
 
 <details>
 <summary>
-<b><code>$state.push</code></b>: push values into state arrays
+<b><code>$state[.submodule].push</code></b>:
+push values into state arrays
 </summary><br>
 
 ```js
@@ -54,7 +57,8 @@ this.$state.merge({
 
 <details>
 <summary>
-<b><code>$state.splice</code></b>: perform `Array.splice()` on state arrays
+<b><code>$state[.submodule].splice</code></b>:
+perform `Array.splice()` on state arrays
 </summary><br>
 
 ```js
@@ -68,24 +72,18 @@ this.$state.splice({
 
 <details>
 <summary>
-<b><code>$state.empty</code></b>: remove all items from arrays
+<b><code>$state[.submodule].empty</code></b>:
+remove all items from arrays
 </summary><br>
 
 ```js
-this.$state.empty('arrayInStateToHaveItemsEmptied')
+this.$state.empty('arrayInState')
 
-this.$state.empty([
-  'arrayInStateToHaveItemsEmptied', 
-  'anotherArrayInStateToHaveItemsEmptied'
-])
+this.$state.empty(['arrayInState', 'anotherArrayInState'])
 
-this.$state.empty({
-  obj: ['arrayInObjToHaveItemsEmptied', 'arrayInObjToHaveItemsEmptied']
-})
+this.$state.empty({ obj: ['arrayInObj', 'anotherArrayInObj'] })
 ```
 </details>
-
-Usage with store submodules: **`$state.submodule.operation()`**.
 
 # Installation
 
@@ -99,9 +97,16 @@ Add to the `modules` section of your `nuxt.config.js`:
 
 ```js
 export default {
-  modules: ['@nuxt/state']
+  modules: ['unholy']
 }
 ```
+
+# 0.9
+
+The latest version of `unholy` is a **major release**: **1.0.0**.
+
+The **0.9** release (which overrides `Vuex.Store.commit()`) for merging objects 
+only remains available on **npm**, but upgrading to 1.0 is **strongly recommended**.
 
 # Credits
 
