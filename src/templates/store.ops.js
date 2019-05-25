@@ -19,21 +19,27 @@ export function mergeProps(target, source) {
   }
 }
 
-export function anullProps(target, source) {
+export function anullProps(target, ...source) {
   if (!isObject(target)) {
     return
   }
-  for (const key in source) {
-    if (key === '__proto__' || key === 'constructor') {
-      continue
+  if (source.length === 1 && isObject(source[0])) {
+    for (const key in source) {
+      if (key === '__proto__' || key === 'constructor') {
+        continue
+      }
+      const val = source[key]
+      if (isObject(val)) {
+        anullProps(target[key], source[key])
+      } else if (Array.isArray(val)) {
+        for (const vkey of val) {
+          Vue.set(target, vkey, null)
+        }
+      }
     }
-    const val = source[key]
-    if (typeof val === 'string') {
-      Vue.set(target, key, null)
-    } else if (isObject(val)) {
-      anullProps(target[key], source[key])
-    } else if (Array.isArray(val)) {
-      for (const vkey of val) {
+  } else {
+    for (const vkey of source) {
+      if (typeof vkey === 'string') {
         Vue.set(target, vkey, null)
       }
     }

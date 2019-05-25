@@ -3,27 +3,24 @@
 exports[`unholy tests test anullProps() 1`] = `
 Object {
   "otherProp": 3,
-  "prop": 2,
+  "prop": null,
 }
 `;
 
 exports[`unholy tests test anullProps() 2`] = `
 Object {
-  "otherProp": 3,
-  "prop": 2,
+  "otherProp": null,
+  "prop": null,
 }
 `;
 
 exports[`unholy tests test anullProps() 3`] = `
 Object {
-  "otherProp": 3,
-  "prop": 2,
-}
-`;
-
-exports[`unholy tests test anullProps() 4`] = `
-Object {
-  "otherProp": null,
-  "prop": null,
+  "obj": Object {
+    "anotherArrayInObj": Array [],
+    "arrayInObj": Array [],
+    "otherProp": 5,
+    "prop": 4,
+  },
 }
 `;

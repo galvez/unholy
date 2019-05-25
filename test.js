@@ -28,12 +28,13 @@ function getState() {
     prop: 2,
     otherProp: 3,
     obj: {
-      propToReceiveNull: 4,
+      prop: 4,
+      otherProp: 5,
       arrayInObj: [],
       anotherArrayInObj: []
     },
     arrayInState: {
-      toReceiveItems1: [2, 3],
+      toReceiveItems1: [6, 7],
       toReceiveItems2: ['a', 'b'],
       toHaveSplicedItems: [0, 2],
     },
@@ -43,25 +44,24 @@ function getState() {
 
 describe('unholy tests', () => {
   test('test anullProps()', () => {
+    let state
+    let prop
+    let otherProp
+    let obj
 
-    let state = getState()
-    let prop, otherProp
-
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
+    state = getState()
     anullProps(state, 'prop')
     ;({ prop, otherProp } = state)
     expect({ prop, otherProp }).toMatchSnapshot()
 
     state = getState()
-    anullProps(state, ['prop', 'otherProp'])
+    anullProps(state, 'prop', 'otherProp')
     ;({ prop, otherProp } = state)
     expect({ prop, otherProp }).toMatchSnapshot()
 
     state = getState()
     anullProps(state, { obj: ['prop', 'otherProp'] })
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
+    ;({ obj } = state)
+    expect({ obj }).toMatchSnapshot()
   })
 })
