@@ -20,31 +20,46 @@ const pushArrays = injectVue(_pushArrays)
 const spliceArrays = injectVue(_spliceArrays)
 const emptyArrays = injectVue(_emptyArrays)
 
-const state = {
-  propInState: {
-    toBeUpdated: 1
-  },
-  propToReceiveNull: 2,
-  otherPropToReceiveNull: 3,
-  obj: {
-    propToReceiveNull: 4,
-    arrayInObj: [],
-    anotherArrayInObj: []
-  },
-  arrayInState: {
-    toReceiveItems1: [2, 3],
-    toReceiveItems2: ['a', 'b'],
-    toHaveSplicedItems: [0, 2],
-  },
-  anotherArrayInState: []
+function getState() {
+  return {
+    propInState: {
+      toBeUpdated: 1
+    },
+    prop: 2,
+    otherProp: 3,
+    obj: {
+      propToReceiveNull: 4,
+      arrayInObj: [],
+      anotherArrayInObj: []
+    },
+    arrayInState: {
+      toReceiveItems1: [2, 3],
+      toReceiveItems2: ['a', 'b'],
+      toHaveSplicedItems: [0, 2],
+    },
+    anotherArrayInState: []
+  }
 }
 
 describe('unholy tests', () => {
   test('test anullProps()', () => {
+
+    let state = getState()
     let prop, otherProp
-    anullProps(state, 'prop', 'otherProp')
+
     ;({ prop, otherProp } = state)
     expect({ prop, otherProp }).toMatchSnapshot()
+
+    anullProps(state, 'prop')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, ['prop', 'otherProp'])
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
     anullProps(state, { obj: ['prop', 'otherProp'] })
     ;({ prop, otherProp } = state)
     expect({ prop, otherProp }).toMatchSnapshot()

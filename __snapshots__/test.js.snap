@@ -2,14 +2,28 @@
 
 exports[`unholy tests test anullProps() 1`] = `
 Object {
-  "otherProp": undefined,
-  "prop": undefined,
+  "otherProp": 3,
+  "prop": 2,
 }
 `;
 
 exports[`unholy tests test anullProps() 2`] = `
 Object {
-  "otherProp": undefined,
-  "prop": undefined,
+  "otherProp": 3,
+  "prop": 2,
+}
+`;
+
+exports[`unholy tests test anullProps() 3`] = `
+Object {
+  "otherProp": 3,
+  "prop": 2,
+}
+`;
+
+exports[`unholy tests test anullProps() 4`] = `
+Object {
+  "otherProp": null,
+  "prop": null,
 }
 `;

@@ -33,8 +33,7 @@ export function anullProps(target, source) {
     } else if (isObject(val)) {
       anullProps(target[key], source[key])
     } else if (Array.isArray(val)) {
-      for (const vkey in val) {
-        console.log('key', key)
+      for (const vkey of val) {
         Vue.set(target, vkey, null)
       }
     }
