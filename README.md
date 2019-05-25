@@ -42,7 +42,10 @@ this.$state.splice({
 </details>
 
 <details>
-<summary>$state.empty</summary>
+<summary>
+**$state.empty**: remove all items from arrays
+</summary>
+
 
 ```js
 this.$state.empty('arrayInStateToHaveItemsEmptied')
