@@ -3,14 +3,18 @@
 Injects a `$state` helper for performing state mutations on the Vuex store. 
 
 <details>
-<summary>$state.merge</summary>
+<summary>
+<b><code>$state.merge</code></b>: merge object into state, overriding existing values
+</summary>
+
+```js
 this.$state.merge({
   propInState: {
     toBeUpdated: 2
   }
 })
+```
 </details>
-
 
 <details>
 <summary>$state.anull</summary>
