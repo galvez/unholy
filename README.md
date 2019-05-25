@@ -97,12 +97,14 @@ export default {
 }
 ```
 
-# 0.9
+# Upgrade from 0.9
 
 The latest version of `unholy` is a **major release**: **1.0.0**.
 
 The **0.9** release (which overrides `Vuex.Store.commit()`) for merging objects 
-only remains available on **npm**, but upgrading to 1.0 is **strongly recommended**.
+remains available on **npm**.
+
+Upgrading to 1.0 is **strongly recommended**.
 
 # Credits
 
