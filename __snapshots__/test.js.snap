@@ -19,8 +19,8 @@ Object {
   "obj": Object {
     "anotherArrayInObj": Array [],
     "arrayInObj": Array [],
-    "otherProp": 5,
-    "prop": 4,
+    "otherProp": null,
+    "prop": null,
   },
 }
 `;
