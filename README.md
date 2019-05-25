@@ -77,9 +77,7 @@ remove all items from arrays
 </summary><br>
 
 ```js
-this.$state.empty('arrayInState')
-
-this.$state.empty(['arrayInState', 'anotherArrayInState'])
+this.$state.empty('arrayInState', 'anotherArrayInState', ...)
 
 this.$state.empty({ obj: ['arrayInObj', 'anotherArrayInObj'] })
 ```
