@@ -20,7 +20,7 @@ export function mergeProps(target, source) {
 }
 
 export function anullProps(target, source) {
-  if (!isObject(target) || !isObject(source)) {
+  if (!isObject(target)) {
     return
   }
   for (const key in source) {
@@ -28,14 +28,15 @@ export function anullProps(target, source) {
       continue
     }
     const val = source[key]
-    if (isObject(val) && isObject(target[key])) {
+    if (typeof val === 'string') {
+      Vue.set(target, key, null)
+    } else if (isObject(val)) {
       anullProps(target[key], source[key])
     } else if (Array.isArray(val)) {
       for (const vkey in val) {
+        console.log('key', key)
         Vue.set(target, vkey, null)
       }
-    } else {
-      Vue.set(target, key, null)
     }
   }
 }

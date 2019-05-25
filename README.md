@@ -29,8 +29,11 @@ set properties in the state to null
 </summary><br>
 
 ```js
+// Set single prop to null
+this.$state.anull('prop')
+
 // Set top-level props to null
-this.$state.anull('prop', 'otherProp', ...)
+this.$state.anull(['prop', 'otherProp', ...])
 
 // Set obj props to null
 this.$state.anull({ obj: ['prop', 'otherProp', ...] })

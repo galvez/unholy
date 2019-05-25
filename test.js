@@ -41,9 +41,12 @@ const state = {
 
 describe('unholy tests', () => {
   test('test anullProps()', () => {
+    let prop, otherProp
     anullProps(state, 'prop', 'otherProp')
-    expect(state).toMatchSnapshot()
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
     anullProps(state, { obj: ['prop', 'otherProp'] })
-    expect(state).toMatchSnapshot()
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
   })
 })
