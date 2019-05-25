@@ -58,7 +58,7 @@ this.$state.merge({
 <details>
 <summary>
 <b><code>$state[.submodule].splice</code></b>:
-perform `Array.splice()` on state arrays
+perform <code>Array.splice()</code> on state arrays
 </summary><br>
 
 ```js
