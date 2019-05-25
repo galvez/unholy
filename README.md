@@ -1,4 +1,6 @@
-**unholy** is a Vuex extension for Nuxt.js that injects a `$state` helper for performing state operations on the Vuex store. Currently the following operations are supported:
+**@nuxt/state** is a Nuxt.js module that injects a `$state` helper for 
+performing state mutations on the Vuex store. Currently the following operations
+are supported:
 
 ## **merge**
 
@@ -50,7 +52,7 @@ this.$state.empty('arrayInStateToHaveItemsEmptied')
 this.$state.empty([
   'arrayInStateToHaveItemsEmptied', 
   'anotherArrayInStateToHaveItemsEmptied'
- ])
+])
 
 this.$state.empty({
   obj: ['arrayInObjToHaveItemsEmptied', 'arrayInObjToHaveItemsEmptied']
