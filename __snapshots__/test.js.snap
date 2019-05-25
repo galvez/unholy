@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`unholy tests test anullProps() 1`] = `
+Object {
+  "anotherArrayInState": Array [],
+  "arrayInState": Object {
+    "toHaveSplicedItems": Array [
+      0,
+      2,
+    ],
+    "toReceiveItems1": Array [
+      2,
+      3,
+    ],
+    "toReceiveItems2": Array [
+      "a",
+      "b",
+    ],
+  },
+  "obj": Object {
+    "anotherArrayInObj": Array [],
+    "arrayInObj": Array [],
+    "propToReceiveNull": 4,
+  },
+  "otherPropToReceiveNull": 3,
+  "propInState": Object {
+    "toBeUpdated": 1,
+  },
+  "propToReceiveNull": 2,
+}
+`;
+
+exports[`unholy tests test anullProps() 2`] = `
+Object {
+  "0": null,
+  "1": null,
+  "anotherArrayInState": Array [],
+  "arrayInState": Object {
+    "toHaveSplicedItems": Array [
+      0,
+      2,
+    ],
+    "toReceiveItems1": Array [
+      2,
+      3,
+    ],
+    "toReceiveItems2": Array [
+      "a",
+      "b",
+    ],
+  },
+  "obj": Object {
+    "anotherArrayInObj": Array [],
+    "arrayInObj": Array [],
+    "propToReceiveNull": 4,
+  },
+  "otherPropToReceiveNull": 3,
+  "propInState": Object {
+    "toBeUpdated": 1,
+  },
+  "propToReceiveNull": 2,
+}
+`;

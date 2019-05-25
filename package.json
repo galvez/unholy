@@ -5,15 +5,17 @@
   "license": "MIT",
   "author": "Jonas Galvez",
   "scripts": {
-    "lint": "eslint --ext .js src"
+    "lint": "eslint --ext .js src",
+    "test": "jest --detectOpenHandles --runInBand"
   },
   "publishConfig": {
     "access": "public"
   },
   "main": "src/index.js",
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^0.0.1",
-    "babel-eslint": "^10.0.1",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-jest": "^24.8.0",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",
@@ -22,6 +24,7 @@
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
     "eslint-plugin-vue": "^4.7.1",
+    "jest": "^24.8.0",
     "standard": "^10.0.2"
   },
   "dependencies": {

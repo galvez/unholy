@@ -1,4 +1,4 @@
-function isObject(val) {
+export function isObject(val) {
   return val !== null && typeof val === 'object' && !Array.isArray(val)
 }
 
@@ -40,7 +40,7 @@ export function anullProps(target, source) {
   }
 }
 
-export function pushItems(target, source) {
+export function pushArrays(target, source) {
   if (!isObject(target) || !isObject(source)) {
     return
   }
@@ -50,7 +50,7 @@ export function pushItems(target, source) {
     }
     const val = source[key]
     if (isObject(val) && isObject(target[key])) {
-      pushItems(target[key], source[key])
+      pushArrays(target[key], source[key])
     } else if (Array.isArray(val) && Array.isArray(target[key])) {
       target[key].push(val)
     }
