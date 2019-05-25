@@ -86,4 +86,70 @@ describe('unholy tests', () => {
     ;({ obj } = state)
     expect({ obj }).toMatchSnapshot()
   })
+
+  test('test pushArrays()', () => {
+    let state
+    let prop
+    let otherProp
+    let obj
+
+    state = getState()
+    anullProps(state, 'prop')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, 'prop', 'otherProp')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, { obj: ['prop', 'otherProp'] })
+    ;({ obj } = state)
+    expect({ obj }).toMatchSnapshot()
+  })
+
+  test('test spliceArrays()', () => {
+    let state
+    let prop
+    let otherProp
+    let obj
+
+    state = getState()
+    anullProps(state, 'prop')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, 'prop', 'otherProp')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, { obj: ['prop', 'otherProp'] })
+    ;({ obj } = state)
+    expect({ obj }).toMatchSnapshot()
+  })
+
+  test('test emptyArrays()', () => {
+    let state
+    let prop
+    let otherProp
+    let obj
+
+    state = getState()
+    anullProps(state, 'prop')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, 'prop', 'otherProp')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
+
+    state = getState()
+    anullProps(state, { obj: ['prop', 'otherProp'] })
+    ;({ obj } = state)
+    expect({ obj }).toMatchSnapshot()
+  })
 })
