@@ -1,7 +1,9 @@
 # unholy
 
-A [Nuxt.js][nuxt] module that injects a `$state` helper for performing core data 
-mutations on the Vuex store. Works with Nuxt.js **2.5 and above**.
+A [Nuxt.js][nuxt] module that injects a `$state` helper for performing **core data 
+mutations on the Vuex store**. 
+
+Works with Nuxt.js **2.5 and above**.
 
 [nuxt]: https://github.com/nuxt/nuxt.js
 
@@ -26,7 +28,7 @@ this.$state.merge({
 
 ```js
 // Set top-level props to null
-this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'])
+this.$state.anull('propToReceiveNull', 'otherPropToReceiveNull', ...)
 
 // Set obj props to null
 this.$state.anull({
