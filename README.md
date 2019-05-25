@@ -80,13 +80,13 @@ this.$state.empty({
 ```
 </details>
 
+Usage with store submodules: **`$state.submodule.operation()`**.
+
 # Installation
 
 ```sh
 yarn add @nuxt/state
 ```
-
-To use with store submodules: **`$state.submodule.operation()`**.
 
 # Setup
 
