@@ -2,21 +2,18 @@
 
 Injects a `$state` helper for performing state mutations on the Vuex store. 
 
-Currently the following operations are supported:
-
-## **merge**
-
-```js
+<details>
+<summary>$state.merge</summary>
 this.$state.merge({
   propInState: {
     toBeUpdated: 2
   }
 })
-````
+</details>
 
-## **anull**
 
-```js
+<details>
+<summary>$state.anull</summary>
 // Set top-level props to null
 this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'])
 
@@ -24,29 +21,28 @@ this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'
 this.$state.anull({
   obj: ['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull']
 })
-````
+</details>
 
-## **push**
-
-```js
+<details>
+<summary>$state.push</summary>
 this.$state.merge({
   arrayInState: {
     toReceiveItems: [2, 3] // push(2, 3)
   }
 })
-```
+</details>
 
-## **splice**
-
-```js
+<details>
+<summary>$state.splice</summary>
 this.$state.splice({
   arrayInState: {
     toHaveSplicedItems: [0, 2] // splice args
   }
 })
-```
+</details>
 
-## **empty**
+<details>
+<summary>$state.empty</summary>
 
 ```js
 this.$state.empty('arrayInStateToHaveItemsEmptied')
@@ -60,6 +56,8 @@ this.$state.empty({
   obj: ['arrayInObjToHaveItemsEmptied', 'arrayInObjToHaveItemsEmptied']
 })
 ```
+
+</details>
 
 # Installation
 

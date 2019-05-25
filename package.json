@@ -24,5 +24,7 @@
     "eslint-plugin-vue": "^4.7.1",
     "standard": "^10.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@nuxt/vue-app": "^2.7.1"
+  }
 }
