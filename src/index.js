@@ -23,19 +23,32 @@ function rp(...args) {
 }
 
 function prepareStoreTemplate() {
-  const vueAppStore = rf(p(`${vueAppStoreBase}/template/store.js`))
-  const createStore = rf(rp('templates/store.create.js'))
-  const storeOps = rf(rp('templates/store.ops.js'))
-  const storeTemplate = vueAppStore.replace(createStoreRegex, `\n${createStore}`)
-  writeFileSync(rp('templates/store.js'), `${storeTemplate}\n${storeOps}`)
+  return new Promise((resolve) => {
+    const vueAppStore = rf(p(`${vueAppStoreBase}/template/store.js`))
+    const createStore = rf(rp('templates/store.create.js'))
+    const storeOps = rf(rp('templates/store.ops.js'))
+    const storeTemplate = vueAppStore.replace(createStoreRegex, `\n${createStore}`)
+    writeFileSync(rp('templates/store.js'), `${storeTemplate}\n${storeOps}`)
+    process.nextTick(() => resolve)
+  })
 }
 
-module.exports = function () {
+module.exports = async function () {
   const src = rp('templates/store.js')
   if (!existsSync(src)) {
-    prepareStoreTemplate()
+    await prepareStoreTemplate()
   }
-  const fileName = 'store.js'
   const options = this.options
-  this.addTemplate({ src, fileName, options })
+  this.nuxt.hook('build:before', () => {
+    this.addTemplate({
+      options,
+      src,
+      fileName: 'store.js'
+    })
+    this.addPlugin({
+      options,
+      src: rp('templates/plugin.js'),
+      fileName: 'nuxt-state/plugin.js'
+    })
+  })
 }
