@@ -1,22 +1,24 @@
 {
   "name": "@nuxt/state",
   "version": "0.1.0",
-  "description": "Vuex helpers for Nuxt.js applications",
+  "description": "State mutation helpers for Nuxt.js applications",
   "license": "MIT",
   "author": "Jonas Galvez",
   "scripts": {
-    "lint": "eslint --ext .js"
+    "lint": "eslint --ext .js src"
   },
   "publishConfig": {
     "access": "public"
   },
   "main": "src/index.js",
   "devDependencies": {
+    "@nuxtjs/eslint-config": "^0.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-html": "^2.0.0",
+    "eslint-plugin-jest": "^22.6.4",
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
     "eslint-plugin-vue": "^4.7.1",

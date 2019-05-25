@@ -12,7 +12,7 @@ function mergeProps(target, source) {
     }
     const val = source[key]
     if (isObject(val) && isObject(target[key])) {
-      mergeObject(target[key], source[key])
+      mergeProps(target[key], source[key])
     } else {
       Vue.set(target, key, val)
     }
@@ -29,11 +29,7 @@ function anullProps(target, source) {
     }
     const val = source[key]
     if (isObject(val) && isObject(target[key])) {
-      mergeObject(target[key], source[key])
-    } else if (Array.isArray(val)) {
-      for (const vkey in val) {
-        Vue.set(target, vkey, null)
-      }
+      anullProps(target[key], source[key])
     } else {
       Vue.set(target, key, null)
     }

@@ -39,7 +39,7 @@ function makeStateProxy(store, submodule = null) {
         return makeStateProxy(store, prop)
       }
     }
-  }
+  })
 }
 
 export default (ctx, inject) => {
