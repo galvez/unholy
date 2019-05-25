@@ -1,15 +1,15 @@
 const { existsSync, readFileSync, writeFileSync } = require('fs')
-const { resolve, separator } = require('path')
+const { resolve, sep } = require('path')
 
 // Used for tampering with @nuxt/vue-app original store
 const vueAppPath = require.resolve('@nuxt/vue-app')
-const vueAppDistSuffix = p('/dist/vue-app.js')
-const vueAppStoreBase = vueAppPath.slice(0, vueAppPath.length - vueAppDistSuffix)
-const createStoreRegex = /\/\/ createStore[\0-\uFFFF]*?}\n/
+const vueAppDistSuffixLen = p('/dist/vue-app.js').length
+const vueAppStoreBase = vueAppPath.slice(0, vueAppPath.length - vueAppDistSuffixLen)
+const createStoreRegex = /\/\/ createStore[\0-\uFFFF]+?\}\n/
 
 // Cross-platform path
 function p(path) {
-  return path.replace(/\//g, separator)
+  return path.replace(/\//g, sep)
 }
 
 // Read file to string
@@ -23,7 +23,7 @@ function rp(...args) {
 }
 
 function prepareStoreTemplate() {
-  const vueAppStore = rf(p(`${vueAppStoreBase}/templates/store.js`))
+  const vueAppStore = rf(p(`${vueAppStoreBase}/template/store.js`))
   const createStore = rf(rp('templates/store.create.js'))
   const storeOps = rf(rp('templates/store.ops.js'))
   const storeTemplate = vueAppStore.replace(createStoreRegex, `\n${createStore}`)

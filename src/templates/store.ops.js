@@ -30,6 +30,10 @@ function anullProps(target, source) {
     const val = source[key]
     if (isObject(val) && isObject(target[key])) {
       anullProps(target[key], source[key])
+    } else if (Array.isArray(val)) {
+      for (const vkey in val) {
+        Vue.set(target, vkey, null)
+      }
     } else {
       Vue.set(target, key, null)
     }
