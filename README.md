@@ -49,7 +49,7 @@ this.$state.merge({
 
 <details>
 <summary>
-<b><code>$state.splice</code></b>: perform Array.splice() on state arrays
+<b><code>$state.splice</code></b>: perform `Array.splice()` on state arrays
 </summary><br>
 
 ```js
