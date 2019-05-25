@@ -1,12 +1,12 @@
 # **@nuxt/state** 
 
-## Injects a `$state` helper for performing state mutations on the Vuex store. 
+## Injects `$state` helper for performing mutations on the Vuex store
 
 <details>
 <summary>
-<b><code>$state.merge</code></b>: merge object into state, overriding existing values
+<b><code>$state.merge</code></b>: merges object into state, overriding existing values
 </summary>
-
+<br>
 ```js
 this.$state.merge({
   propInState: {
@@ -17,7 +17,11 @@ this.$state.merge({
 </details>
 
 <details>
-<summary>$state.anull</summary>
+<summary>
+<b><code>$state.anull</code></b>: set properties in the state to null
+</summary>
+<br>
+```
 // Set top-level props to null
 this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'])
 
@@ -25,31 +29,43 @@ this.$state.anull(['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull'
 this.$state.anull({
   obj: ['propToReceiveNull', 'propToReceiveNull', 'propToReceiveNull']
 })
+```
 </details>
 
 <details>
-<summary>$state.push</summary>
+<summary>
+<b><code>$state.push</code></b>: push values into state arrays
+</summary>
+<br>
+```js
 this.$state.merge({
   arrayInState: {
-    toReceiveItems: [2, 3] // push(2, 3)
+    toReceiveItems1: [2, 3] // push(2, 3)
+    toReceiveItems2: ['a', 'b'] // push('a', 'b')
   }
 })
+```
 </details>
 
 <details>
-<summary>$state.splice</summary>
+<summary>
+<b><code>$state.splice</code></b>: perform Array.splice() on state arrays
+</summary>
+<br>
+```js
 this.$state.splice({
   arrayInState: {
     toHaveSplicedItems: [0, 2] // splice args
   }
 })
+```
 </details>
 
 <details>
 <summary>
 <b><code>$state.empty</code></b>: remove all items from arrays
 </summary>
-
+<br>
 ```js
 this.$state.empty('arrayInStateToHaveItemsEmptied')
 
