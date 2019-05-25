@@ -1,6 +1,6 @@
 # **@nuxt/state** 
 
-Injects a `$state` helper for performing state mutations on the Vuex store. 
+## Injects a `$state` helper for performing state mutations on the Vuex store. 
 
 <details>
 <summary>
