@@ -60,7 +60,7 @@ this.$state.empty({
 # Installation
 
 ```sh
-yarn add unholy
+yarn add @nuxt/state
 ```
 
 # Setup
@@ -69,7 +69,7 @@ Add to the `modules` section of your `nuxt.config.js`:
 
 ```js
 export default {
-  modules: ['unholy']
+  modules: ['@nuxt/state']
 }
 ```
 
