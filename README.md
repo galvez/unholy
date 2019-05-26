@@ -1,29 +1,88 @@
-**unholy** is a Vuex extension for Nuxt.js that modifies `commit()` to allow
-simple, recursive state merging, as long as you use a single global state in 
-your application.
+# unholy
+
+A [Nuxt.js][nuxt] module that injects a `$state` helper for performing **core 
+data mutations on the Vuex store**. 
+
+Works with Nuxt.js **2.5 and above**.
+
+[nuxt]: https://github.com/nuxt/nuxt.js
+
+<details>
+<summary>
+<b><code>$state[.submodule].merge</code></b>:
+merges object into state, overriding existing values
+</summary><br>
 
 ```js
-this.$store.commit({
+this.$state.merge({
   propInState: {
     toBeUpdated: 2
   }
 })
 ```
+</details>
 
-Calls to `commit()` with a single object parameter will trigger this 
-functionality. 
+<details>
+<summary>
+<b><code>$state[.submodule].anull</code></b>:
+set properties in the state to null
+</summary><br>
 
-Calls with more arguments will trigger the original functionality.
+```js
+// Set single prop to null
+this.$state.anull('prop')
 
-It is **unsafe** because it extends `Vuex.Store`'s prototype and Nuxt.js's 
-default `store.js` template.
+// Set top-level props to null
+this.$state.anull('prop', 'otherProp', ...)
 
-In other words, at the time of writing, this module is only **guaranteed** to 
-work with **Nuxt 2.5.1** and **Vuex 3.1.0**.
+// Set obj props to null
+this.$state.anull({ obj: ['prop', 'otherProp', ...] })
+```
+</details>
 
- [See what **nuxt/hackernews** looks like with unholy][unholy-hn].
+<details>
+<summary>
+<b><code>$state[.submodule].push</code></b>:
+push values into state arrays
+</summary><br>
 
- [unholy-hn]: https://github.com/galvez/hackernews/commit/38885631742c9321172114693da30e703c85a120
+```js
+this.$state.push({
+  arrayInState: {
+    toReceiveItems1: [2, 3] // push(2, 3)
+    toReceiveItems2: ['a', 'b'] // push('a', 'b')
+  }
+})
+```
+</details>
+
+<details>
+<summary>
+<b><code>$state[.submodule].splice</code></b>:
+perform <code>Array.splice()</code> on state arrays
+</summary><br>
+
+```js
+this.$state.splice({
+  arrayInState: {
+    toHaveSplicedItems: [0, 2] // splice args
+  }
+})
+```
+</details>
+
+<details>
+<summary>
+<b><code>$state[.submodule].empty</code></b>:
+remove all items from arrays
+</summary><br>
+
+```js
+this.$state.empty('arrayInState', 'anotherArrayInState', ...)
+
+this.$state.empty({ obj: ['arrayInObj', 'anotherArrayInObj'] })
+```
+</details>
 
 # Installation
 
@@ -40,6 +99,15 @@ export default {
   modules: ['unholy']
 }
 ```
+
+# Upgrade from 0.9
+
+The latest version of `unholy` is a **major release**: **1.0.0**.
+
+The **0.9** release (which overrides `Vuex.Store.commit()`) for merging objects 
+remains available on **npm**.
+
+Upgrading to 1.0 is **strongly recommended**.
 
 # Credits
 
