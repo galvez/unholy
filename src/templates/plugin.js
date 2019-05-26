@@ -21,7 +21,7 @@ function makeStateProxy(store, submodule = null) {
       get: (_, prop) => {
         if (stateOps.includes(prop)) {
           return (...payload) => {
-            store.commit(`${submodule}/${stateOpMap[prop]}`, payload, {root: true})
+            store.commit(`${submodule}/${stateOpMap[prop]}`, payload)
           }
         } else {
           return makeStateProxy(store, `${prop}/${submodule}`)
@@ -33,9 +33,7 @@ function makeStateProxy(store, submodule = null) {
     get: (_, prop) => {
       if (stateOps.includes(prop)) {
         return (...payload) => {
-          console.log('prop', prop)
-          console.log('payload', payload)
-          store.commit(stateOpMap[prop], payload)
+          store.commit(stateOpMap[prop], payload, {root: true})
         }
       } else {
         return makeStateProxy(store, prop)
