@@ -1,18 +1,18 @@
 // createStore
 export const createStore = store instanceof Function ? store : () => {
-  store.mutations.nuxtStateMerge = function(state, payload) {
+  store.mutations.nuxtStateMerge = function (state, payload) {
     mergeProps(state, payload)
   }
-  store.mutations.nuxtStateAnull = function(state, payload) {
+  store.mutations.nuxtStateAnull = function (state, payload) {
     anullProps(state, payload)
   }
-  store.mutations.nuxtStatePush = function(state, payload) {
+  store.mutations.nuxtStatePush = function (state, payload) {
     pushArrays(state, payload)
   }
-  store.mutations.nuxtStateSplice = function(state, payload) {
+  store.mutations.nuxtStateSplice = function (state, payload) {
     spliceArrays(state, payload)
   }
-  store.mutations.nuxtStateEmpty = function(state, payload) {
+  store.mutations.nuxtStateEmpty = function (state, payload) {
     emptyArrays(state, payload)
   }
   return new Vuex.Store(Object.assign({

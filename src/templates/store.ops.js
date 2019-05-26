@@ -81,7 +81,6 @@ export function spliceArrays(target, source) {
   }
 }
 
-
 export function emptyArrays(target, ...source) {
   if (!isObject(target)) {
     return
@@ -95,13 +94,17 @@ export function emptyArrays(target, ...source) {
       const val = source[key]
       if (isObject(val)) {
         emptyArrays(target[key], source[key])
-      } else if (Array.isArray(target[key]) && Array.isArray(val)) {
-        target[key].splice(0, target[key].length)
+      } else if (Array.isArray(val)) {
+        for (const vkey of val) {
+          if (typeof vkey === 'string' && Array.isArray(target[key][vkey])) {
+            target[key][vkey].splice(0, target[key][vkey].length)
+          }
+        }
       }
     }
   } else {
-    for (const vkey of source) {
-      if (typeof vkey === 'string' && Array.isArray(target[key])) {
+    for (const key of source) {
+      if (typeof key === 'string' && Array.isArray(target[key])) {
         target[key].splice(0, target[key].length)
       }
     }
