@@ -46,72 +46,72 @@ function getState() {
 }
 
 describe('unholy tests', () => {
-  // test('test mergeProps()', () => {
-  //   let state
+  test('test mergeProps()', () => {
+    let state
 
-  //   state = getState()
-  //   mergeProps(state, { newProp: 1 })
-  //   expect(state.newProp).toMatchSnapshot()
+    state = getState()
+    mergeProps(state, { newProp: 1 })
+    expect(state.newProp).toMatchSnapshot()
 
-  //   state = getState()
-  //   mergeProps(state, {
-  //     newProp: 2,
-  //     newObject: {
-  //       newProp: 3,
-  //       newArray: [4]
-  //     }
-  //   })
-  //   expect(state.newProp).toMatchSnapshot()
-  //   expect(state.newObject).toMatchSnapshot()
-  // })
+    state = getState()
+    mergeProps(state, {
+      newProp: 2,
+      newObject: {
+        newProp: 3,
+        newArray: [4]
+      }
+    })
+    expect(state.newProp).toMatchSnapshot()
+    expect(state.newObject).toMatchSnapshot()
+  })
 
-  // test('test anullProps()', () => {
-  //   let state
-  //   let prop
-  //   let otherProp
-  //   let obj
+  test('test anullProps()', () => {
+    let state
+    let prop
+    let otherProp
+    let obj
 
-  //   state = getState()
-  //   anullProps(state, 'prop')
-  //   ;({ prop, otherProp } = state)
-  //   expect({ prop, otherProp }).toMatchSnapshot()
+    state = getState()
+    anullProps(state, 'prop')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
 
-  //   state = getState()
-  //   anullProps(state, 'prop', 'otherProp')
-  //   ;({ prop, otherProp } = state)
-  //   expect({ prop, otherProp }).toMatchSnapshot()
+    state = getState()
+    anullProps(state, 'prop', 'otherProp')
+    ;({ prop, otherProp } = state)
+    expect({ prop, otherProp }).toMatchSnapshot()
 
-  //   state = getState()
-  //   anullProps(state, { obj: ['prop', 'otherProp'] })
-  //   ;({ obj } = state)
-  //   expect({ obj }).toMatchSnapshot()
-  // })
+    state = getState()
+    anullProps(state, { obj: ['prop', 'otherProp'] })
+    ;({ obj } = state)
+    expect({ obj }).toMatchSnapshot()
+  })
 
-  // test('test pushArrays()', () => {
-  //   const state = getState()
-  //   pushArrays(state, {
-  //     obj: {
-  //       arrayInObj: [1, 2],
-  //       anotherArrayInObj: [3, 4]
-  //     },
-  //     obj2: {
-  //       arr1: [8, 9],
-  //       arr2: ['c', 'd'],
-  //     }
-  //   })
-  //   expect(state).toMatchSnapshot()
-  // })
+  test('test pushArrays()', () => {
+    const state = getState()
+    pushArrays(state, {
+      obj: {
+        arrayInObj: [1, 2],
+        anotherArrayInObj: [3, 4]
+      },
+      obj2: {
+        arr1: [8, 9],
+        arr2: ['c', 'd'],
+      }
+    })
+    expect(state).toMatchSnapshot()
+  })
 
-  // test('test spliceArrays()', () => {
-  //   const state = getState()
-  //   spliceArrays(state, {
-  //     obj2: {
-  //       arr1: [1, 1, 10],
-  //       arr2: [2, 0, 'e', 'f'],
-  //     }
-  //   })
-  //   expect(state).toMatchSnapshot()
-  // })
+  test('test spliceArrays()', () => {
+    const state = getState()
+    spliceArrays(state, {
+      obj2: {
+        arr1: [1, 1, 10],
+        arr2: [2, 0, 'e', 'f'],
+      }
+    })
+    expect(state).toMatchSnapshot()
+  })
 
   test('test emptyArrays()', () => {
     let state
