@@ -7,7 +7,7 @@ function injectUnholyMutations(store) {
     nuxtStateAnull: (s, p) => anullProps(s, ...p),
     nuxtStatePush: (s, p) => pushArrays(s, ...p),
     nuxtStateSplice: (s, p) => spliceArrays(s, ...p),
-    nuxtStateEmpty: (s, p) => emptyArrays(s, ...pd)
+    nuxtStateEmpty: (s, p) => emptyArrays(s, ...p)
   })
   if (store.modules) {
     Object.keys(store.modules).forEach((module) => {
