@@ -29,17 +29,15 @@ function prepareStoreTemplate() {
     const storeOps = rf(rp('templates/store.ops.js'))
     const storeTemplate = vueAppStore.replace(createStoreRegex, `\n${createStore}`)
     writeFileSync(rp('templates/store.js'), `${storeTemplate}\n${storeOps}`)
-    process.nextTick(() => resolve)
+    process.nextTick(() => resolve())
   })
 }
 
-module.exports = async function () {
+module.exports = function () {
   const src = rp('templates/store.js')
-  if (!existsSync(src)) {
-    await prepareStoreTemplate()
-  }
   const options = this.options
-  this.nuxt.hook('build:before', () => {
+  this.nuxt.hook('build:before', async () => {
+    await prepareStoreTemplate()
     this.addTemplate({
       options,
       src,
