@@ -2,9 +2,14 @@ function injectUnholyMutations(store) {
   if (!store.mutations) {
     store.mutations = {}
   }
+  if (!store.actions) {
+    store.actions = {}
+  }
   mergeProps(store.mutations, {
     nuxtStateMerge: (s, p) => mergeProps(s, ...p),
     nuxtStateAnull: (s, p) => anullProps(s, ...p),
+    nuxtStatePop: (s, p) => popArray(s, p),
+    nuxtStateShift: (s, p) => shiftArray(s, ...p),
     nuxtStatePush: (s, p) => pushArrays(s, ...p),
     nuxtStateSplice: (s, p) => spliceArrays(s, ...p),
     nuxtStateEmpty: (s, p) => emptyArrays(s, ...pd)

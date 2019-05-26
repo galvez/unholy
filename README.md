@@ -120,7 +120,7 @@ const vueAppStoreBase = vueAppPath.slice(0, vueAppPath.length - vueAppDistSuffix
 const createStoreRegex = /\/\/ createStore[\0-\uFFFF]+?\}\n/
 ```
 
-Which is used for tampering with `@nuxt/vue-app` original store 😈
+Which is used for tampering with the `@nuxt/vue-app` original store 😈
 
 # Credits
 
