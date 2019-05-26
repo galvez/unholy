@@ -122,9 +122,6 @@ const createStoreRegex = /\/\/ createStore[\0-\uFFFF]+?\}\n/
 
 Which is used for tampering with `@nuxt/vue-app` original store 😈
 
-Hacky, but surprisingly reliable! It **will** require new maintenance version if
-Nuxt's store template changes too significantly.
-
 # Credits
 
 - Jonas Galvez ([@galvez](https://github.com/galvez))
