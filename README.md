@@ -109,6 +109,22 @@ remains available on **npm**.
 
 Upgrading to 1.0 is **strongly recommended**.
 
+# Why "unholy"?
+
+Because somewhere in the source code, you'll find this:
+
+```js
+const vueAppPath = require.resolve('@nuxt/vue-app')
+const vueAppDistSuffixLen = p('/dist/vue-app.js').length
+const vueAppStoreBase = vueAppPath.slice(0, vueAppPath.length - vueAppDistSuffixLen)
+const createStoreRegex = /\/\/ createStore[\0-\uFFFF]+?\}\n/
+```
+
+Which is used for tampering with `@nuxt/vue-app` original store 😈
+
+Hacky, but surprisingly reliable! It **will** require new maintenance version if
+Nuxt's store template changes too significantly.
+
 # Credits
 
 - Jonas Galvez ([@galvez](https://github.com/galvez))
