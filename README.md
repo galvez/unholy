@@ -33,7 +33,7 @@ set properties in the state to null
 this.$state.anull('prop')
 
 // Set top-level props to null
-this.$state.anull(['prop', 'otherProp', ...])
+this.$state.anull('prop', 'otherProp', ...)
 
 // Set obj props to null
 this.$state.anull({ obj: ['prop', 'otherProp', ...] })
@@ -47,7 +47,7 @@ push values into state arrays
 </summary><br>
 
 ```js
-this.$state.merge({
+this.$state.push({
   arrayInState: {
     toReceiveItems1: [2, 3] // push(2, 3)
     toReceiveItems2: ['a', 'b'] // push('a', 'b')

@@ -31,12 +31,15 @@ function getState() {
       prop: 4,
       otherProp: 5,
       arrayInObj: [],
-      anotherArrayInObj: []
+      anotherArrayInObj: [],
+      nested: {
+        arr: [1, 2, 3]
+      }
     },
-    arrayInState: {
-      toReceiveItems1: [6, 7],
-      toReceiveItems2: ['a', 'b'],
-      toHaveSplicedItems: [0, 2],
+    obj2: {
+      arr1: [6, 7],
+      arr2: ['a', 'b'],
+      arr3: [1, 2, 3, 4, 5]
     },
     anotherArrayInState: []
   }
@@ -45,9 +48,6 @@ function getState() {
 describe('unholy tests', () => {
   test('test mergeProps()', () => {
     let state
-    let prop
-    let otherProp
-    let obj
 
     state = getState()
     mergeProps(state, { newProp: 1 })
@@ -88,68 +88,37 @@ describe('unholy tests', () => {
   })
 
   test('test pushArrays()', () => {
-    let state
-    let prop
-    let otherProp
-    let obj
-
-    state = getState()
-    anullProps(state, 'prop')
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
-    state = getState()
-    anullProps(state, 'prop', 'otherProp')
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
-    state = getState()
-    anullProps(state, { obj: ['prop', 'otherProp'] })
-    ;({ obj } = state)
-    expect({ obj }).toMatchSnapshot()
+    const state = getState()
+    pushArrays(state, {
+      obj: {
+        arrayInObj: [1, 2],
+        anotherArrayInObj: [3, 4]
+      },
+      obj2: {
+        arr1: [8, 9],
+        arr2: ['c', 'd'],
+      }
+    })
+    expect(state).toMatchSnapshot()
   })
 
   test('test spliceArrays()', () => {
-    let state
-    let prop
-    let otherProp
-    let obj
-
-    state = getState()
-    anullProps(state, 'prop')
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
-    state = getState()
-    anullProps(state, 'prop', 'otherProp')
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
-    state = getState()
-    anullProps(state, { obj: ['prop', 'otherProp'] })
-    ;({ obj } = state)
-    expect({ obj }).toMatchSnapshot()
+    const state = getState()
+    spliceArrays(state, {
+      obj2: {
+        arr1: [1, 1, 10],
+        arr2: [2, 0, 'e', 'f'],
+      }
+    })
+    expect(state).toMatchSnapshot()
   })
 
   test('test emptyArrays()', () => {
-    let state
-    let prop
-    let otherProp
-    let obj
-
-    state = getState()
-    anullProps(state, 'prop')
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
-    state = getState()
-    anullProps(state, 'prop', 'otherProp')
-    ;({ prop, otherProp } = state)
-    expect({ prop, otherProp }).toMatchSnapshot()
-
-    state = getState()
-    anullProps(state, { obj: ['prop', 'otherProp'] })
-    ;({ obj } = state)
-    expect({ obj }).toMatchSnapshot()
+    const state = getState()
+    emptyArrays(state, {
+      obj1: ['arrayInObj', 'anotherArrayInObj'],
+      obj2: ['arr2']
+    })
+    expect(state).toMatchSnapshot()
   })
 })

@@ -19,8 +19,56 @@ Object {
   "obj": Object {
     "anotherArrayInObj": Array [],
     "arrayInObj": Array [],
+    "nested": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+      ],
+    },
     "otherProp": null,
     "prop": null,
+  },
+}
+`;
+
+exports[`unholy tests test emptyArrays() 1`] = `
+Object {
+  "anotherArrayInState": Array [],
+  "obj": Object {
+    "anotherArrayInObj": Array [],
+    "arrayInObj": Array [],
+    "nested": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+      ],
+    },
+    "otherProp": 5,
+    "prop": 4,
+  },
+  "obj2": Object {
+    "arr1": Array [
+      6,
+      7,
+    ],
+    "arr2": Array [
+      "a",
+      "b",
+    ],
+    "arr3": Array [
+      1,
+      2,
+      3,
+      4,
+      5,
+    ],
+  },
+  "otherProp": 3,
+  "prop": 2,
+  "propInState": Object {
+    "toBeUpdated": 1,
   },
 }
 `;
@@ -35,5 +83,99 @@ Object {
     4,
   ],
   "newProp": 3,
+}
+`;
+
+exports[`unholy tests test pushArrays() 1`] = `
+Object {
+  "anotherArrayInState": Array [],
+  "obj": Object {
+    "anotherArrayInObj": Array [
+      3,
+      4,
+    ],
+    "arrayInObj": Array [
+      1,
+      2,
+    ],
+    "nested": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+      ],
+    },
+    "otherProp": 5,
+    "prop": 4,
+  },
+  "obj2": Object {
+    "arr1": Array [
+      6,
+      7,
+      8,
+      9,
+    ],
+    "arr2": Array [
+      "a",
+      "b",
+      "c",
+      "d",
+    ],
+    "arr3": Array [
+      1,
+      2,
+      3,
+      4,
+      5,
+    ],
+  },
+  "otherProp": 3,
+  "prop": 2,
+  "propInState": Object {
+    "toBeUpdated": 1,
+  },
+}
+`;
+
+exports[`unholy tests test spliceArrays() 1`] = `
+Object {
+  "anotherArrayInState": Array [],
+  "obj": Object {
+    "anotherArrayInObj": Array [],
+    "arrayInObj": Array [],
+    "nested": Object {
+      "arr": Array [
+        1,
+        2,
+        3,
+      ],
+    },
+    "otherProp": 5,
+    "prop": 4,
+  },
+  "obj2": Object {
+    "arr1": Array [
+      6,
+      10,
+    ],
+    "arr2": Array [
+      "a",
+      "b",
+      "e",
+      "f",
+    ],
+    "arr3": Array [
+      1,
+      2,
+      3,
+      4,
+      5,
+    ],
+  },
+  "otherProp": 3,
+  "prop": 2,
+  "propInState": Object {
+    "toBeUpdated": 1,
+  },
 }
 `;

@@ -48,7 +48,7 @@ export function anullProps(target, ...source) {
 }
 
 export function pushArrays(target, source) {
-  if (!isObject(target) || !isObject(source)) {
+  if (!isObject(target) && !isObject(source)) {
     return
   }
   for (const key in source) {
@@ -56,16 +56,16 @@ export function pushArrays(target, source) {
       continue
     }
     const val = source[key]
-    if (isObject(val) && isObject(target[key])) {
+    if (isObject(val)) {
       pushArrays(target[key], source[key])
-    } else if (Array.isArray(val) && Array.isArray(target[key])) {
-      target[key].push(val)
+    } else if (Array.isArray(target[key]) && Array.isArray(val)) {
+      target[key].push(...val)
     }
   }
 }
 
 export function spliceArrays(target, source) {
-  if (!isObject(target) || !isObject(source)) {
+  if (!isObject(target) && !isObject(source)) {
     return
   }
   for (const key in source) {
@@ -73,28 +73,36 @@ export function spliceArrays(target, source) {
       continue
     }
     const val = source[key]
-    if (isObject(val) && isObject(target[key])) {
+    if (isObject(val)) {
       spliceArrays(target[key], source[key])
-    } else if (Array.isArray(val) && Array.isArray(target[key])) {
-      target[key].splice(...val)
+    } else if (Array.isArray(target[key]) && Array.isArray(val)) {
+      target[key].splice.apply(target[key], val)
     }
   }
 }
 
-export function emptyArrays(target, source) {
-  if (!isObject(target) || !isObject(source)) {
+
+export function emptyArrays(target, ...source) {
+  if (!isObject(target)) {
     return
   }
-  for (const key in source) {
-    if (key === '__proto__' || key === 'constructor') {
-      continue
+  if (source.length === 1 && isObject(source[0])) {
+    source = source[0]
+    for (const key in source) {
+      if (key === '__proto__' || key === 'constructor') {
+        continue
+      }
+      const val = source[key]
+      if (isObject(val)) {
+        emptyArrays(target[key], source[key])
+      } else if (Array.isArray(target[key]) && Array.isArray(val)) {
+        target[key].splice(0, target[key].length)
+      }
     }
-    const val = source[key]
-    if (isObject(val) && isObject(target[key])) {
-      emptyArrays(target[key], source[key])
-    } else if (Array.isArray(val)) {
-      for (const vkey in val) {
-        target[vkey].splice(0, target[vkey].length)
+  } else {
+    for (const vkey of source) {
+      if (typeof vkey === 'string' && Array.isArray(target[key])) {
+        target[key].splice(0, target[key].length)
       }
     }
   }
