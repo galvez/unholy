@@ -1,4 +1,4 @@
-const { existsSync, readFileSync, writeFileSync } = require('fs')
+const { readFileSync, writeFileSync } = require('fs')
 const { resolve, sep } = require('path')
 
 // Used for tampering with @nuxt/vue-app original store
