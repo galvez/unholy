@@ -11,6 +11,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "src"
+  ],
   "main": "src/index.js",
   "devDependencies": {
     "@babel/core": "^7.4.5",
